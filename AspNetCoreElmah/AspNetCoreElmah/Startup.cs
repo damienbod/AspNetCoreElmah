@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +12,7 @@ namespace AspNetCoreElmah
     public class Startup
     {
         private string _elmahAppKey;
-        private string _elmahALogId;
+        private string _elmahLogId;
 
         public Startup(IHostingEnvironment env)
         {
@@ -27,7 +24,7 @@ namespace AspNetCoreElmah
 
             if (env.IsDevelopment())
             {
-                builder.AddUserSecrets();
+                builder.AddUserSecrets("AspNetCoreElmah-c23d2237a4-eb8832a1-452ac4");
             }
 
             Configuration = builder.Build();
@@ -39,7 +36,7 @@ namespace AspNetCoreElmah
         public void ConfigureServices(IServiceCollection services)
         {
             _elmahAppKey = Configuration["ElmahAppKey"];
-            _elmahALogId = Configuration["ElmahALogId"];
+            _elmahLogId = Configuration["ElmahLogId"];
             // Add framework services.
             services.AddMvc();
         }
@@ -50,8 +47,8 @@ namespace AspNetCoreElmah
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahALogId));
-            app.UseElmahIo(_elmahAppKey, new Guid(_elmahALogId));
+            loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+            app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
 
             app.UseStaticFiles();
             app.UseMvc();
