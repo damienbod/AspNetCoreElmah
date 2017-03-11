@@ -30,6 +30,7 @@ namespace AspNetCoreElmah.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
+            throw new System.Exception("something terrible bad here!");
             return "value";
         }
 
