@@ -8,10 +8,11 @@
     <Content Include="wwwroot\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Elmah.Io.AspNetCore" Version="3.2.39-pre" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Elmah.Io.AspNetCore;
 
 namespace AspNetCoreElmah
 {
@@ -36,6 +37,8 @@ namespace AspNetCoreElmah
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseElmahIo("damienbod",new Guid("d7d96a2bf54149418837c7927adebea9"));
 
             app.UseStaticFiles();
             app.UseMvc();
