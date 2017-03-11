@@ -38,8 +38,7 @@ namespace AspNetCoreElmah
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseElmahIo("d7d96a2bf54149418837c7927adebea9", new Guid("937a05c3-24de-41d2-9238-3305fa3ec215"));
-
+            
             app.UseStaticFiles();
             app.UseMvc();
         }
