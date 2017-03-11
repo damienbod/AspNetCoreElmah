@@ -48,7 +48,10 @@ namespace AspNetCoreElmahUI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+            loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId), new FilterLoggerSettings
+            {
+                {"HomeController", LogLevel.Information}
+            });
             app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
 
             if (env.IsDevelopment())

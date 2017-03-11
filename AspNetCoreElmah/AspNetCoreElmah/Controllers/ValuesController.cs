@@ -18,9 +18,6 @@ namespace AspNetCoreElmah.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            _logger.LogCritical("LogCritical Getting all items");
-            _logger.LogError("LogError Getting all items");
-            _logger.LogWarning("LogWarning Getting all items");
             _logger.LogInformation("LogInformation Getting all items");
 
             return new string[] { "value1", "value2" };
