@@ -1,3 +1,6 @@
 AspNetCoreElmah/AspNetCoreElmah/bin
 AspNetCoreElmah/AspNetCoreElmah/obj
 AspNetCoreElmah/.vs
+AspNetCoreElmah/AspNetCoreElmahUI/bin
+AspNetCoreElmah/AspNetCoreElmahUI/obj
+AspNetCoreElmah/AspNetCoreElmahUI/wwwroot

@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <UserSecretsId>AspNetCoreElmah-c23d2237a4-eb8832a1-452ac4</UserSecretsId>
+    <UserSecretsId>AspNetCoreElmahUI-c23d2237a4-eb8832a1-452ac5</UserSecretsId>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <Content Include="wwwroot\index.html" />
-  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Elmah.Io.AspNetCore" Version="3.2.39-pre" />
     <PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.1.21-pre" />
