@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp1.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <UserSecretsId>AspNetCoreElmah-c23d2237a4-eb8832a1-452ac4</UserSecretsId>
+  </PropertyGroup>
+  
   <ItemGroup>
     <Content Include="wwwroot\index.html" />
   </ItemGroup>
@@ -15,6 +19,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
