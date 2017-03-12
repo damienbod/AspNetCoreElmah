@@ -20,7 +20,7 @@ namespace Elmah.Io.NLog
         public string ApiKey { get; set; }
 
         [RequiredParameter]
-        public Guid LogId { get; set; }
+        public string LogId { get; set; }
 
         public string Application { get; set; }
 
@@ -57,7 +57,7 @@ namespace Elmah.Io.NLog
                 Application = Application,
             };
 
-            _client.Messages.CreateAndNotify(LogId, message);
+            _client.Messages.CreateAndNotify(new Guid(LogId), message);
         }
 
         private string Identity(LogEventInfo logEvent)
@@ -82,7 +82,15 @@ namespace Elmah.Io.NLog
 
         private List<Item> PropertiesToData(IDictionary<object, object> properties)
         {
-            return properties.Keys.Select(key => new Item{Key = key.ToString(), Value = properties[key].ToString()}).ToList();
+            var items = new List<Item>();
+            foreach (var obj in properties)
+            {
+                if(obj.Value != null)
+                {
+                    items.Add(new Item { Key = obj.Key.ToString(), Value = obj.Value.ToString() });
+                }
+            }
+            return items;
         }
 
         private string LevelToSeverity(LogLevel level)
