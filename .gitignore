@@ -4,3 +4,5 @@ AspNetCoreElmah/.vs
 AspNetCoreElmah/AspNetCoreElmahUI/bin
 AspNetCoreElmah/AspNetCoreElmahUI/obj
 AspNetCoreElmah/AspNetCoreElmahUI/wwwroot
+AspNetCoreElmah/NLog.Targets.Elmah.Io/obj
+AspNetCoreElmah/NLog.Targets.Elmah.Io/bin
