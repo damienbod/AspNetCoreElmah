@@ -7,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using NLog.Web;
 using NLog;
-using Elmah.Io.AspNetCore;
 
 namespace AspNetCoreElmahUI
 {
@@ -58,8 +57,7 @@ namespace AspNetCoreElmahUI
             ////{
             ////    {"HomeController", LogLevel.Information}
             ////});
-
-            app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+            //app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
 
             if (env.IsDevelopment())
             {
