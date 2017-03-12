@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using NLog.Web;
 using NLog;
+using Elmah.Io.AspNetCore;
 
 namespace AspNetCoreElmahUI
 {
@@ -46,17 +47,19 @@ namespace AspNetCoreElmahUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            LogManager.Configuration.Variables["elmahAppKey"] = _elmahAppKey;
+            LogManager.Configuration.Variables["elmahLogId"] = _elmahLogId;
+
             loggerFactory.AddNLog();
             app.AddNLogWeb();
 
-            LogManager.Configuration.Variables["elmahAppKey"] = _elmahAppKey;
-            LogManager.Configuration.Variables["elmahLogId"] = _elmahLogId;
 
             ////loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId), new FilterLoggerSettings
             ////{
             ////    {"HomeController", LogLevel.Information}
             ////});
-            ////app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+
+            app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
 
             if (env.IsDevelopment())
             {
