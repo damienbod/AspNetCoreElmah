@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using NLog.Web;
 using NLog;
+using Microsoft.AspNetCore.Http;
 
 namespace AspNetCoreElmahUI
 {
@@ -36,6 +37,8 @@ namespace AspNetCoreElmahUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             _elmahAppKey = Configuration["ElmahAppKey"];
             _elmahLogId = Configuration["ElmahLogId"];
 
@@ -46,12 +49,12 @@ namespace AspNetCoreElmahUI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            LogManager.Configuration.Variables["elmahAppKey"] = _elmahAppKey;
-            LogManager.Configuration.Variables["elmahLogId"] = _elmahLogId;
-
             loggerFactory.AddNLog();
             app.AddNLogWeb();
 
+            LogManager.Configuration.Variables["elmahAppKey"] = _elmahAppKey;
+            LogManager.Configuration.Variables["elmahLogId"] = _elmahLogId;
+            LogManager.Configuration.Variables["configDir"] = "C:\\git\\damienbod\\AspNetCoreElmah\\Logs";
 
             ////loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId), new FilterLoggerSettings
             ////{
