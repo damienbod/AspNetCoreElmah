@@ -63,7 +63,18 @@ namespace AspNetCoreElmah
                         msg.Application = "AspNetCoreElmah";
                     }
                 });
-            app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+            app.UseElmahIo(
+                _elmahAppKey, 
+                new Guid(_elmahLogId),
+                new ElmahIoSettings()
+                {
+                    OnMessage = msg =>
+                    {
+                        msg.Version = "1.0.0";
+                        msg.Hostname = "dev";
+                        msg.Application = "AspNetCoreElmah";
+                    }
+                });
 
             app.UseStaticFiles();
             app.UseMvc();
