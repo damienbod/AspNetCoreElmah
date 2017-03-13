@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreElmah", "AspNetCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreElmahUI", "AspNetCoreElmahUI\AspNetCoreElmahUI.csproj", "{8E5368DE-A5BE-41EF-A1A3-B6E66B160EB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.Targets.Elmah.Io", "NLog.Targets.Elmah.Io\NLog.Targets.Elmah.Io.csproj", "{B41064E2-8DEA-46C7-A0C9-57DF6BC44A5C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{8E5368DE-A5BE-41EF-A1A3-B6E66B160EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E5368DE-A5BE-41EF-A1A3-B6E66B160EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E5368DE-A5BE-41EF-A1A3-B6E66B160EB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B41064E2-8DEA-46C7-A0C9-57DF6BC44A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B41064E2-8DEA-46C7-A0C9-57DF6BC44A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B41064E2-8DEA-46C7-A0C9-57DF6BC44A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B41064E2-8DEA-46C7-A0C9-57DF6BC44A5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
