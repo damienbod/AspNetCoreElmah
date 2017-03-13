@@ -47,7 +47,22 @@ namespace AspNetCoreElmah
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+            loggerFactory.AddElmahIo(
+                _elmahAppKey, 
+                new Guid(_elmahLogId), 
+                new FilterLoggerSettings
+                {
+                    {"ValuesController", LogLevel.Information}
+                },
+                new ElmahIoProviderOptions
+                {
+                    OnMessage = msg =>
+                    {
+                        msg.Version = "1.0.0";
+                        msg.Hostname = "dev";
+                        msg.Application = "AspNetCoreElmah";
+                    }
+                });
             app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
 
             app.UseStaticFiles();
