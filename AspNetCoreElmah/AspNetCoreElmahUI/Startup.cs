@@ -8,6 +8,8 @@ using NLog.Extensions.Logging;
 using NLog.Web;
 using NLog;
 using Microsoft.AspNetCore.Http;
+using System.Linq;
+using Elmah.Io.NLog;
 
 namespace AspNetCoreElmahUI
 {
@@ -56,11 +58,13 @@ namespace AspNetCoreElmahUI
             LogManager.Configuration.Variables["elmahLogId"] = _elmahLogId;
             LogManager.Configuration.Variables["configDir"] = "C:\\git\\damienbod\\AspNetCoreElmah\\Logs";
 
-            ////loggerFactory.AddElmahIo(_elmahAppKey, new Guid(_elmahLogId), new FilterLoggerSettings
-            ////{
-            ////    {"HomeController", LogLevel.Information}
-            ////});
-            //app.UseElmahIo(_elmahAppKey, new Guid(_elmahLogId));
+            foreach (ElmahIoTarget target in LogManager.Configuration.AllTargets.Where(t => t is ElmahIoTarget))
+            {
+                target.ApiKey = _elmahAppKey;
+                target.LogId = _elmahLogId;
+            }
+
+            LogManager.ReconfigExistingLoggers();
 
             if (env.IsDevelopment())
             {
