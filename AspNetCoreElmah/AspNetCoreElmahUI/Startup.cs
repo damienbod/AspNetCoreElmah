@@ -54,8 +54,6 @@ namespace AspNetCoreElmahUI
             loggerFactory.AddNLog();
             app.AddNLogWeb();
 
-            LogManager.Configuration.Variables["elmahAppKey"] = _elmahAppKey;
-            LogManager.Configuration.Variables["elmahLogId"] = _elmahLogId;
             LogManager.Configuration.Variables["configDir"] = "C:\\git\\damienbod\\AspNetCoreElmah\\Logs";
 
             foreach (ElmahIoTarget target in LogManager.Configuration.AllTargets.Where(t => t is ElmahIoTarget))
