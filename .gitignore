@@ -1,0 +1,12 @@
+AspNetCoreElmah/AspNetCoreElmah/bin
+AspNetCoreElmah/AspNetCoreElmah/obj
+AspNetCoreElmah/.vs
+AspNetCoreElmah/AspNetCoreElmahUI/bin
+AspNetCoreElmah/AspNetCoreElmahUI/obj
+AspNetCoreElmah/AspNetCoreElmahUI/wwwroot
+AspNetCoreElmah/NLog.Targets.Elmah.Io/obj
+AspNetCoreElmah/NLog.Targets.Elmah.Io/bin
+Logs/internal-nlog.txt
+Logs
+AspNetCoreElmah/Elmah.Io.NLog/bin
+AspNetCoreElmah/Elmah.Io.NLog/obj
